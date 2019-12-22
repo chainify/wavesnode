@@ -4,7 +4,7 @@
 Based on [official wavesplatform documentstion](https://docs.wavesplatform.com).
 
 ### Create environment
-Run remote server with Ubuntu 18
+Run remote server with Ubuntu 18. Make sure to have at least 60Gb of storage.
 ```
 ssh root@YOUR_SERVER_IP
 apt-get update
