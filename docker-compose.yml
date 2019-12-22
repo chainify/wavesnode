@@ -1,0 +1,38 @@
+version: "2"
+
+services:
+  nginx:
+    build: ./nginx
+    image: chainify/waves-nginx
+    container_name: waves-nginx
+    ports:
+      - 6868:6868
+      - 6869:6869
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - fullnode
+    restart: unless-stopped
+
+  fullnode:
+    build: ./fullnode
+    image: chainify/waves-fullnode
+    container_name: waves-fullnode
+    volumes:
+      - /root/.waves/mainnet:/root/.local/share/waves-mainnet
+      - /root/.waves/configs:/root/.waves/configs
+    command: bash -c "python3.7 server.py"
+    tty: true
+    stdin_open: true
+    labels:
+      - "autoheal=true"
+    restart: unless-stopped
+
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: waves-autoheal
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=autoheal
