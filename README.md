@@ -1,6 +1,7 @@
 # Waves Platform mainnet docker image
 
 ## Installation guide
+Based on [official wavesplatform documentstion](https://docs.wavesplatform.com).
 
 ### Create environment
 Run remote server with Ubuntu 18
@@ -33,14 +34,17 @@ nano waves-fullnode.conf
 All empty fields are required
 
 ### Pull docker images
-Inside `/root/.waves/compose` directory run
+Inside `/root/.waves/compose` directory run.
 ```
 docker-compose pull
 docker-compose up -d
 ```
+☝️Current version of Waves Blockchain is 1.2
 
-Follow blockchain node logs with
+### Display fullnode logs
 ```
 docker logs -f waves-fullnode --tail 200
 ```
 
+----
+MIT license
