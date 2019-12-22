@@ -5,9 +5,9 @@ services:
     image: chainify/waves-nginx
     container_name: waves-nginx
     ports:
-      - 80:80
-      # - 6868:6868
-      # - 6869:6869
+      # - 80:80
+      - 6868:6868
+      - 6869:6869
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
@@ -21,9 +21,9 @@ services:
       - /root/.waves/mainnet:/root/.local/share/waves-mainnet
       - ./fullnode/configs:/root/.waves/configs
     command: bash -c "java -jar node/target/waves-all*.jar ../configs/waves-mainnet.conf"
-    ports:
-      - 6868:6868
-      - 6869:6869
+    # ports:
+    #   - 6868:6868
+    #   - 6869:6869
     tty: true
     stdin_open: true
     labels:
