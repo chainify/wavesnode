@@ -18,8 +18,8 @@ services:
     container_name: waves-fullnode
     volumes:
       - /root/.waves/mainnet:/root/.local/share/waves-mainnet
-      - /fullnode/local.conf:/root/.waves/configs/
-      - /fullnode/waves-mainnet.conf:/root/.waves/configs/
+      - /fullnode/configs/:/root/.waves/configs/
+      - /fullnode/configs/:/root/.waves/configs/
     tty: true
     stdin_open: true
     labels:
