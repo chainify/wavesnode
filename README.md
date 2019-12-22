@@ -25,13 +25,19 @@ cd compose
 git clone https://github.com/chainify/wavesnode.git .
 ```
 
-### Update fullnode config file
+### Update config files
+Nginx. Replace `138.68.73.84` with your server ip address.
+```
+cd nginx
+nano nginx.conf
+```
+
+Fullnode. Full-up all empty parameters.
 ```
 cd fullnode
 mv waves-fullnode.example.conf waves-fullnode.conf 
 nano waves-fullnode.conf
 ```
-All empty fields are required
 
 ### Pull docker images
 Inside `/root/.waves/compose` directory run.
@@ -40,6 +46,17 @@ docker-compose pull
 docker-compose up -d
 ```
 ☝️Current version of Waves Blockchain is 1.2
+
+### Create your own image (optional)
+This might be helpful for updating fullnode version or pushing the images to your private Docker environment. Don't forget to replace `chainify` with your account name in `docker-compose.*` files.
+
+To build and upload your images run:
+```
+docker login
+docker-compose -f docker-compose.dev.yml build
+docker-compose -f docker-compose.dev.yml push
+```
+
 
 ### Display fullnode logs
 ```
