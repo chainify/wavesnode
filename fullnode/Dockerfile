@@ -20,7 +20,6 @@ RUN dpkg -i node/target/*.deb
 
 HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD curl --fail http://0.0.0.0:6869/node/status || exit 1
 
-WORKDIR /root/.waves
-CMD [ "java", "-jar", "./src/node/target/waves-all*.jar", "./configs/waves-mainnet.conf" ]
+# CMD [ "java", "-jar", "/root/.waves/src/node/target/waves-all*.jar", "/root/.waves/configs/waves-mainnet.conf" ]
 
-EXPOSE 6868 689
+EXPOSE 6868 6869
