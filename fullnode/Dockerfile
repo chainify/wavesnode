@@ -18,6 +18,6 @@ RUN sbt packageAll
 
 RUN dpkg -i node/target/*.deb
 
-HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD curl --fail http://0.0.0.0:6869/node/status || exit 1
+HEALTHCHECK --interval=60s --timeout=3s --retries=3 CMD curl --fail http://0.0.0.0:6869/node/status || exit 1
 
 EXPOSE 6868 6869
