@@ -19,6 +19,7 @@ services:
     volumes:
       - /root/.waves/mainnet:/root/.local/share/waves-mainnet
       - ./fullnode/configs:/root/.waves/configs
+    command: bash -c "java -jar node/target/waves-all*.jar ../configs/waves-mainnet.conf"
     tty: true
     stdin_open: true
     labels:
