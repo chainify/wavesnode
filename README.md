@@ -25,6 +25,23 @@ cd compose
 git clone https://github.com/chainify/wavesnode.git .
 ```
 
+### Config envirinment varriables
+- WAVES_NETWORK=mainnet
+- WAVES_VERSION=latest
+- BRANCH=version-0.17.x
+- SBT_VERSION=1.2.8
+- WAVES_LOG_LEVEL=DEBUG
+- WAVES_HEAP_SIZE=2g
+- WAVES__REST_API__ENABLE=yes
+- WAVES__REST_API__BIND_ADDRESS=0.0.0.0
+- WAVES__REST_API__PORT=6869
+
+#### By default these variables are not provided. Uncomment them to pass to environment.
+- WAVES_WALLET_SEED=
+- WAVES_WALLET_SEED_BASE58=
+- WAVES_WALLET_PASSWORD=
+- WAVES__REST_API__API_KEY_HASH=
+
 ### Pull docker images
 Inside `/root/.waves/compose` directory run.
 ```
