@@ -19,7 +19,7 @@ services:
     volumes:
       - /root/.waves/mainnet:/var/lib/waves
     environment:
-      - WAVES_NETWORK=mainnet
+      - WAVES_NETWORK=MAINNET
       - WAVES_VERSION=latest
       - BRANCH=version-0.17.x
       - SBT_VERSION=1.2.8
