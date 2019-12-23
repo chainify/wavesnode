@@ -36,11 +36,13 @@ git clone https://github.com/chainify/wavesnode.git .
 - WAVES__REST_API__BIND_ADDRESS=0.0.0.0
 - WAVES__REST_API__PORT=6869
 
-#### By default these variables are not provided. Uncomment them to pass to environment.
+#### By default these variables are not provided. Uncomment them and fill them up to pass to environment.
 - WAVES_WALLET_SEED=
 - WAVES_WALLET_SEED_BASE58=
 - WAVES_WALLET_PASSWORD=
 - WAVES__REST_API__API_KEY_HASH=
+
+Follow the [official guides](https://github.com/wavesplatform/node-docker-image) to learn more.
 
 ### Pull docker images
 Inside `/root/.waves/compose` directory run.
