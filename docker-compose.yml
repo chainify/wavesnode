@@ -14,15 +14,25 @@ services:
     restart: always
 
   fullnode:
-    image: chainify/waves-fullnode
+    image: wavesplatform/wavesnode
     container_name: waves-fullnode
     volumes:
-      - /root/.waves/mainnet:/root/.local/share/waves-mainnet
-      - ./fullnode/configs:/root/.waves/configs
-    command: bash -c "java -jar node/target/waves-all*.jar ../configs/waves-mainnet.conf"
+      - /root/.waves/mainnet:/var/lib/waves
+      - ./fullnode/configs:/etc/waves
+    # command: bash -c "java -jar node/target/waves-all*.jar ../configs/waves-mainnet.conf"
     ports:
       - 6868:6868
       - 6869:6869
+    environment:
+      - WAVES_NETWORK=mainnet
+      - WAVES_VERSION=latest
+      - BRANCH=version-0.17.x
+      - SBT_VERSION=1.2.8
+      - WAVES_LOG_LEVEL=DEBUG
+      - WAVES_HEAP_SIZE=2g
+      # - WAVES_WALLET_SEED=
+      # - WAVES_WALLET_PASSWORD=
+      - JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0"
     tty: true
     stdin_open: true
     labels:
