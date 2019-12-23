@@ -1,7 +1,7 @@
 # Waves Platform mainnet docker image
 
 ## Installation guide
-Based on [official wavesplatform documentstion](https://docs.wavesplatform.com).
+Based on [official wavesplatform documentation](https://docs.wavesplatform.com).
 
 ### Create environment
 Run remote server with Ubuntu 18. Make sure to have at least 60Gb of storage.
