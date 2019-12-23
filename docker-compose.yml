@@ -14,11 +14,10 @@ services:
     restart: always
 
   fullnode:
-    image: wavesplatform/wavesnode
+    image: wavesplatform/node
     container_name: waves-fullnode
     volumes:
       - /root/.waves/mainnet:/var/lib/waves
-      - ./fullnode/configs:/etc/waves
     environment:
       - WAVES_NETWORK=mainnet
       - WAVES_VERSION=latest
