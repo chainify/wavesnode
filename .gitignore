@@ -1,1 +1,4 @@
 waves-mainnet.conf
+fullnode/*
+docker-compose.dev.yml
+docker-compose.self.yml

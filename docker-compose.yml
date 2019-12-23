@@ -2,11 +2,11 @@ version: "2"
 
 services:
   nginx:
-    image: chainify/waves-nginx
+    image: nginx
     container_name: waves-nginx
-    # ports:
-    #   - 6868:6868
-    #   - 6869:6869
+    ports:
+      - 6868:6868
+      - 6869:6869
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
@@ -19,10 +19,6 @@ services:
     volumes:
       - /root/.waves/mainnet:/var/lib/waves
       - ./fullnode/configs:/etc/waves
-    # command: bash -c "java -jar node/target/waves-all*.jar ../configs/waves-mainnet.conf"
-    ports:
-      - 6868:6868
-      - 6869:6869
     environment:
       - WAVES_NETWORK=mainnet
       - WAVES_VERSION=latest
@@ -30,9 +26,13 @@ services:
       - SBT_VERSION=1.2.8
       - WAVES_LOG_LEVEL=DEBUG
       - WAVES_HEAP_SIZE=2g
+      - WAVES__REST_API__ENABLE=yes
+      - WAVES__REST_API__BIND_ADDRESS=0.0.0.0
+      - WAVES__REST_API__PORT=6869
       # - WAVES_WALLET_SEED=
+      # - WAVES_WALLET_SEED_BASE58=
       # - WAVES_WALLET_PASSWORD=
-      - JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0"
+      # - WAVES__REST_API__API_KEY_HASH=
     tty: true
     stdin_open: true
     labels:
