@@ -18,7 +18,6 @@ services:
     container_name: waves-fullnode
     volumes:
       - /root/.waves/mainnet:/waves
-      # - /root/.waves/mainnet:/var/lib/waves
     environment:
       - WAVES_NETWORK=MAINNET
       - WAVES_VERSION=latest
