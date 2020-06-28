@@ -5,6 +5,7 @@ services:
     build: ./caddy
     image: waves/caddy
     container_name: waves-caddy
+    ports:
       - 80:80
       - 443:443
     environment:
