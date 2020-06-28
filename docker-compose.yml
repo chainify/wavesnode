@@ -1,14 +1,17 @@
 version: "2"
 
 services:
-  nginx:
-    image: nginx
-    container_name: waves-nginx
-    ports:
-      - 6868:6868
-      - 6869:6869
+  caddy:
+    build: ./caddy
+    image: waves/caddy
+    container_name: waves-caddy
+      - 80:80
+      - 443:443
+    environment:
+      - SITE_ADDRESS=:80
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ~/.data/caddy:/data
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - fullnode
     restart: always
@@ -18,6 +21,8 @@ services:
     container_name: waves-fullnode
     volumes:
       - /root/.waves/mainnet:/waves
+    ports:
+      - 6868:6868
     environment:
       - WAVES_NETWORK=MAINNET
       - WAVES_VERSION=latest
