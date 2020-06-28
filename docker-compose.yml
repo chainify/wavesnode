@@ -21,11 +21,11 @@ services:
     image: wavesplatform/node
     container_name: waves-fullnode
     volumes:
-      - /root/.waves/mainnet:/waves
+      - ~/.waves/testnet:/waves
     ports:
       - 6868:6868
     environment:
-      - WAVES_NETWORK=MAINNET
+      - WAVES_NETWORK=TESTNET
       - WAVES_VERSION=latest
       - BRANCH=version-0.17.x
       - SBT_VERSION=1.2.8
