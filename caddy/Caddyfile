@@ -1,3 +1,2 @@
-{$SITE_ADDRESS} {
-  reverse_proxy * http://fullnode:6869
-}
+{$SITE_ADDRESS}
+reverse_proxy http://fullnode:6869
