@@ -1,22 +1,6 @@
 version: "2"
 
 services:
-  caddy:
-    build: ./caddy
-    image: waves/caddy
-    container_name: waves-caddy
-    ports:
-      - 80:80
-      - 443:443
-    environment:
-      - SITE_ADDRESS=:80
-    volumes:
-      - ~/.data/caddy:/data
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-    depends_on:
-      - fullnode
-    restart: always
-
   fullnode:
     image: wavesplatform/node
     container_name: waves-fullnode
@@ -24,6 +8,7 @@ services:
       - ~/.waves/testnet:/waves
     ports:
       - 6868:6868
+      - 6869:6869
     environment:
       - WAVES_NETWORK=TESTNET
       - WAVES_VERSION=latest

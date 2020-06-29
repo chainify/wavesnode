@@ -1,2 +1,0 @@
-{$SITE_ADDRESS}
-reverse_proxy http://fullnode:6869
